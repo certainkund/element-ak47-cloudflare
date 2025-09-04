@@ -105,3 +105,65 @@
     descEl.textContent = `${t} — initialized. Persona glow bound to sigils.`;
   });
 })();
+
+/* === Infernal Blade Background (original) === */
+(() => {
+  // Create background layer + canvas without editing HTML
+  const layer = document.createElement("div");
+  layer.className = "daemon-bk";
+  document.body.appendChild(layer);
+
+  const canvas = document.createElement("canvas");
+  canvas.id = "embers-canvas";
+  document.body.appendChild(canvas);
+
+  const ctx = canvas.getContext("2d");
+  let w, h, dpr = window.devicePixelRatio || 1;
+  function resize(){
+    w = canvas.width  = Math.floor(innerWidth  * dpr);
+    h = canvas.height = Math.floor(innerHeight * dpr);
+    canvas.style.width = innerWidth + "px";
+    canvas.style.height = innerHeight + "px";
+  }
+  resize(); addEventListener("resize", resize);
+
+  const N = 120;
+  function rnd(a,b){ return a + Math.random()*(b-a); }
+  function spawn(){
+    return {
+      x: rnd(0,w), y: rnd(h*0.5,h),
+      r: rnd(0.6,2.2)*dpr, a: rnd(.35,.9),
+      vx: rnd(-0.2,0.2)*dpr, vy: rnd(-0.35,-1.2)*dpr,
+      hue: Math.random()<.5 ? 0 : 330 // red / magenta
+    };
+  }
+  const parts = Array.from({length:N}, spawn);
+
+  let paused = false;
+  function draw(){
+    if (paused) return;
+    ctx.clearRect(0,0,w,h);
+    for (const p of parts){
+      p.x += p.vx; p.y += p.vy; p.a -= 0.0015; p.r += 0.003*dpr;
+      if (p.a <= 0 || p.y < -20*dpr) Object.assign(p, spawn());
+      ctx.beginPath();
+      ctx.fillStyle = `hsla(${p.hue}, 90%, 60%, ${Math.max(p.a,0)})`;
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
+      ctx.fill();
+    }
+    requestAnimationFrame(draw);
+  }
+  draw();
+
+  // Respect classroom/light toggle if present
+  const toggle = document.querySelector("#light-toggle");
+  function update(){
+    const classroom = document.body.classList.contains("classroom") || (toggle && toggle.checked);
+    paused = classroom;
+    canvas.style.display = classroom ? "none" : "block";
+    layer.style.display  = classroom ? "none" : "block";
+    if (!paused) draw();
+  }
+  toggle && toggle.addEventListener("change", update);
+  update();
+})();

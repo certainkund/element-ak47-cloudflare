@@ -70,3 +70,34 @@ html,body{background:var(--bg);color:var(--text);font-family:ui-sans-serif,syste
 body.classroom{ --bg:#f9fafb; --bg-card:#ffffff; --text:#0a0a0a; --muted:#4b5563; }
 body.classroom .blood-moon-card{ background:var(--bg-card); border-color:rgba(244,63,94,.35); }
 #rate-limit-msg{ font-size:.9rem }
+/* === Infernal Blade Background (original, non-infringing) === */
+.daemon-bk{
+  position: fixed; inset: -10vmax; z-index: -1; pointer-events: none;
+}
+.daemon-bk::before{
+  content:""; position:absolute; inset:0;
+  background:
+    radial-gradient(60vmax 60vmax at 70% 10%, rgba(239,68,68,.18), transparent 55%),
+    radial-gradient(50vmax 50vmax at 20% 80%, rgba(190,24,93,.16), transparent 55%),
+    conic-gradient(from 0deg at 50% 50%, rgba(239,68,68,.10), rgba(190,24,93,.12), rgba(239,68,68,.10));
+  filter: blur(60px) saturate(120%); mix-blend-mode: screen;
+  animation: ibk-spin 40s linear infinite; opacity:.6;
+}
+.daemon-bk::after{
+  content:""; position:absolute; inset:-20%;
+  background:
+    repeating-linear-gradient(115deg, rgba(255,255,255,.08) 0 2px, transparent 2px 18px),
+    repeating-linear-gradient(245deg, rgba(255,255,255,.05) 0 1px, transparent 1px 14px);
+  mix-blend-mode: overlay; animation: ibk-slash 8s linear infinite; opacity:.35;
+}
+@keyframes ibk-spin { to { transform: rotate(360deg); } }
+@keyframes ibk-slash { to { transform: translate3d(-12%, -6%, 0); } }
+
+/* Embers canvas */
+#embers-canvas{
+  position: fixed; inset:0; z-index:0; pointer-events:none;
+  mix-blend-mode: screen; opacity:.45; filter: blur(.2px);
+}
+
+/* Hide effect in classroom/light mode */
+body.classroom .daemon-bk, body.classroom #embers-canvas { display:none; }
