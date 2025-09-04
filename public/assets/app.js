@@ -1,84 +1,107 @@
-
-document.addEventListener('DOMContentLoaded',()=>{
-  const evoke=document.getElementById('evoke-button');
-  const retry=document.getElementById('retry-button');
-  const generate=document.getElementById('generate-button');
-  const theme=document.getElementById('theme-display');
-  const outTitle=document.getElementById('output-title');
-  const outDesc=document.getElementById('output-description');
-  const statusDot=document.getElementById('status-indicator');
-  const rateMsg=document.getElementById('rate-limit-msg');
-  const mockToggle=document.getElementById('mock-toggle');
-  const lightToggle=document.getElementById('light-toggle');
-
-  const setStatus=(mode)=>{
-    statusDot.className='status-dot';
-    if(mode==='proxy')statusDot.classList.add('green');
-    else if(mode==='rate')statusDot.classList.add('yellow');
-    else statusDot.classList.add('red');
-  };
-
-  function mockOracle(){return 'Mocked Name '+Math.floor(Math.random()*1000);}
-
-  async function evokeName(){
-    evoke.disabled=true;
-    theme.textContent='The Oracle is speaking...';
-    if(mockToggle.checked){
-      theme.textContent=mockOracle();
-      setStatus('mock');
-      evoke.disabled=false;
-      generate.disabled=false;
-      return;
-    }
-    try{
-      const r=await fetch('/api/oracle',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({arcLabel:'ASCEND',energyLabel:'BALANCED'})});
-      if(r.status===429){setStatus('rate');showRateLimit();return;}
-      if(!r.ok)throw new Error('fail');
-      const {name}=await r.json();
-      theme.textContent=name||'The Void Gazes Back';
-      setStatus('proxy');
-      generate.disabled=false;
-    }catch(e){
-      theme.textContent=mockOracle();
-      setStatus('mock');
-      retry.classList.remove('hidden');
-    }finally{
-      evoke.disabled=false;
-    }
+(() => {
+  // Light/Classroom mode
+  const toggle = document.querySelector('#light-toggle');
+  if (toggle) {
+    toggle.addEventListener('change', () => {
+      document.body.classList.toggle('classroom', toggle.checked);
+    });
   }
 
-  function showRateLimit(){
-    let remain=10;
+  // Status indicator: green for online (proxy), amber when mock
+  const statusDot = document.querySelector('#status-indicator');
+  const mockToggle = document.querySelector('#mock-toggle');
+  const setStatus = () => {
+    if (!statusDot) return;
+    const mock = mockToggle?.checked;
+    statusDot.style.background = mock ? '#f59e0b' : '#22c55e';
+    statusDot.style.boxShadow = mock
+      ? '0 0 18px rgba(245,158,11,.55)'
+      : '0 0 18px rgba(34,197,94,.55)';
+  };
+  mockToggle?.addEventListener('change', setStatus);
+  setStatus();
+
+  // Chart.js: simple “Prophecy” bars
+  const ctx = document.getElementById('marketChart');
+  if (ctx && window.Chart) {
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Now', '+3m', '+6m', '+12m', '+24m'],
+        datasets: [{
+          label: 'Mythic Momentum',
+          data: [2, 5, 9, 15, 28],
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: { legend: { labels: { color: '#cbd5e1' } } },
+        scales: {
+          x: { ticks: { color: '#a1a1aa' }, grid: { color: 'rgba(148,163,184,.15)' } },
+          y: { ticks: { color: '#a1a1aa' }, grid: { color: 'rgba(148,163,184,.15)' } }
+        }
+      }
+    });
+  }
+
+  // “Forge” demo interactions
+  const titleEl = document.getElementById('output-title');
+  const descEl  = document.getElementById('output-description');
+  const rateMsg = document.getElementById('rate-limit-msg');
+  const evoke   = document.getElementById('evoke-button');
+  const retry   = document.getElementById('retry-button');
+  const generate= document.getElementById('generate-button');
+
+  const mockNames = [
+    ['ORUS, Cipher of Dawn', 'A mythic persona woven from static and sunrise.'],
+    ['PUCK, Lantern of Neon Rain', 'A trickster spirit guiding arcane networks.'],
+    ['CHARON, Keeper of the Black River', 'Ferrying queries across the void.']
+  ];
+
+  function randomChoice(arr){ return arr[Math.floor(Math.random()*arr.length)]; }
+
+  let cooling = false;
+  function startCooldown(sec=10){
+    if (cooling) return;
+    cooling = true;
+    let t = sec;
     rateMsg.classList.remove('hidden');
-    rateMsg.textContent='Rate limited. Wait '+remain+'s';
-    const t=setInterval(()=>{
-      remain--;
-      rateMsg.textContent='Rate limited. Wait '+remain+'s';
-      if(remain<=0){clearInterval(t);rateMsg.classList.add('hidden');}
+    const iv = setInterval(()=>{
+      rateMsg.textContent = `⏳ Rate limit — wait ${t}s`;
+      if(--t <= 0){ clearInterval(iv); rateMsg.classList.add('hidden'); cooling=false; }
     },1000);
   }
 
-  function generatePersona(){
-    const text='A mythic persona is forged with glowing runes...';
-    outTitle.textContent=theme.textContent;
-    outDesc.textContent='';
-    outDesc.classList.add('typing');
-    let i=0;
-    const interval=setInterval(()=>{
-      outDesc.textContent=text.slice(0,i);
-      i++;
-      if(i>text.length){
-        clearInterval(interval);
-        outDesc.classList.remove('typing');
-        document.querySelector('.output-card').classList.add('glow');
+  async function invokeOracle(){
+    const useMock = mockToggle?.checked ?? true;
+    try{
+      evoke.disabled = true; retry.classList.add('hidden'); generate.disabled = true;
+      if(useMock){
+        const [t,d] = randomChoice(mockNames);
+        await new Promise(r=>setTimeout(r,400));
+        titleEl.textContent = t;
+        descEl.textContent  = d;
+        setStatus();
+        generate.disabled = false;
+      }else{
+        // Hook your real proxy here
+        throw new Error('No proxy configured');
       }
-    },50);
+    }catch(e){
+      titleEl.textContent = '⚠️ Oracle unreachable';
+      descEl.textContent  = 'Falling back to mock mode.';
+      retry.classList.remove('hidden');
+    }finally{
+      evoke.disabled = false;
+      startCooldown(8);
+    }
   }
 
-  evoke.addEventListener('click',evokeName);
-  retry.addEventListener('click',evokeName);
-  generate.addEventListener('click',generatePersona);
-  lightToggle.addEventListener('change',()=>{
-    document.body.classList.toggle('light',lightToggle.checked);
+  evoke?.addEventListener('click', invokeOracle);
+  retry?.addEventListener('click', invokeOracle);
+
+  generate?.addEventListener('click', ()=>{
+    const t = titleEl.textContent || 'Unnamed Relic';
+    descEl.textContent = `${t} — initialized. Persona glow bound to sigils.`;
   });
-});
+})();
