@@ -35,6 +35,8 @@ Step into "The Forge," where the mundane transforms into the mythical. This inte
 - **Light/Classroom Mode Toggle:** Adapt the Forge's ambiance to your surroundings—from deep arcane chambers to illuminated study halls.
 - **Typing Animation + Glowing Persona Output:** Witness the Oracle's thoughts taking form, its words imbued with a faint, ethereal glow.
 
+![Classroom Mode](/images/unnamed%20(1).png)
+
 ---
 
 ## 🚀 Deployment: Anchoring the Arcane in the Cloud 🚀
