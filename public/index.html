@@ -3,7 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Element AK‑47 Forge v2</title>
+  <title>Element AK‑47 v3</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
   <link rel="stylesheet" href="/assets/style.css">
   <script>
     if (!location.hostname.startsWith("element-ak47-cloudflare.pages.dev") && location.hostname.includes("element-ak47-cloudflare.pages.dev")) {
@@ -11,25 +16,60 @@
     }
   </script>
 </head>
-<body>
-  <div class="banner">Educational Demonstration — v2</div>
-  <div class="controls">
-    <label><input type="checkbox" id="mock-toggle"> Offline / Mock</label>
-    <label><input type="checkbox" id="light-toggle"> Light Mode</label>
-    <span id="status-indicator" class="status-dot gray"></span>
-  </div>
-  <main>
-    <h1>Forge Persona</h1>
-    <div id="theme-display">...Awaiting Evocation...</div>
-    <button id="evoke-button">Evoke Name</button>
-    <button id="retry-button" class="hidden">Retry Oracle</button>
-    <button id="generate-button" disabled>Forge Persona</button>
-    <div id="output" class="output-card">
-      <div id="output-title"></div>
-      <div id="output-description"></div>
-    </div>
-    <div id="rate-limit-msg" class="hidden"></div>
+<body class="bg-black text-gray-100">
+  <div class="banner">Educational Demo — v3 <span id="status-indicator" class="status-dot"></span></div>
+  <header class="sticky top-0 shadow glass-pane">
+    <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <h1 class="text-3xl font-cinzel font-bold">Aries‑Gemini Project</h1>
+      <div class="hidden md:flex gap-6">
+        <a href="#vision" class="nav-link">Discovery</a>
+        <a href="#roadmap" class="nav-link">Prophecy</a>
+        <a href="#demo" class="nav-link">Forge</a>
+      </div>
+      <label class="flex items-center gap-1 text-xs"><input type="checkbox" id="light-toggle"> Light/Classroom Mode</label>
+    </nav>
+  </header>
+  <main class="container mx-auto px-6 py-12">
+    <section id="vision" class="py-20">
+      <div class="text-center mb-12">
+        <h2 class="text-5xl font-cinzel font-black">ELEMENT AK‑47</h2>
+        <p class="mt-4 text-red-400">A collaboration unleashing a new volatile element...</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="blood-moon-card p-6">AI Schism</div>
+        <div class="blood-moon-card p-6">Conceptual Alchemy</div>
+        <div class="blood-moon-card p-6">Unleashed Knowledge</div>
+      </div>
+    </section>
+    <section id="roadmap" class="py-20">
+      <h2 class="text-5xl font-cinzel font-black text-center mb-8">The Prophecy</h2>
+      <div class="grid md:grid-cols-2 gap-12">
+        <div><canvas id="marketChart"></canvas></div>
+        <div class="timeline space-y-4"><div class="timeline-item">First Seal</div><div class="timeline-item">Second Seal</div><div class="timeline-item">Third Seal</div></div>
+      </div>
+    </section>
+    <section id="demo" class="py-20">
+      <h2 class="text-5xl font-cinzel font-black text-center mb-8">The Forge</h2>
+      <div class="max-w-4xl mx-auto glass-pane p-6 rounded-lg">
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="space-y-4">
+            <label><input type="checkbox" id="mock-toggle"> Offline / Mock</label>
+            <div id="theme-display" class="p-3 border rounded italic">...Awaiting Evocation...</div>
+            <button id="evoke-button" class="btn">Evoke Name</button>
+            <button id="retry-button" class="btn hidden">Retry Oracle</button>
+            <button id="generate-button" class="btn" disabled>Forge Persona</button>
+            <div id="rate-limit-msg" class="text-red-500 hidden"></div>
+          </div>
+          <div class="output-card p-4 border rounded">
+            <h3 class="font-cinzel">Forge Output</h3>
+            <div id="output-title" class="text-xl font-bold"></div>
+            <div id="output-description"></div>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
+  <footer class="bg-black/50 text-center p-4">&copy; 2025 Aries‑Gemini Project</footer>
   <script src="/assets/app.js"></script>
 </body>
 </html>
