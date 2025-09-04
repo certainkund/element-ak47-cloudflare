@@ -1,0 +1,4 @@
+git apply endgame.patch || git apply --whitespace=nowarn endgame.patch
+git add .
+git commit -m "feat: gothic endgame UI + safety + animated GIF banner + docs"
+git push -u origin endgame-gif
