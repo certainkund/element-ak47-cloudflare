@@ -79,6 +79,6 @@ wrangler pages dev public --compatibility-date=2024-09-01
 ### /images
 _(no images found in /images)_
 
-### /element-ak47-cloudflare/Gemini_Generated_Images_rc_a92e3663456250ad_2
-_(no images found in /element-ak47-cloudflare/Gemini_Generated_Images_rc_a92e3663456250ad_2)_
+### /Gemini_Generated_Images_rc_a92e3663456250ad_2/images
+_(no images found in /Gemini_Generated_Images_rc_a92e3663456250ad_2/images)_
 <!-- END:GALLERY -->
