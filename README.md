@@ -1,93 +1,74 @@
-# ⚔️ Element AK-47 ⚔️  
-**The Arcane Serverless Oracle**  
+# Element AK‑47 — Aries–Gemini Project (Cloudflare Demo)
 
-*A gothic digital artifact fusing AI, Cloudflare, and mythic storytelling*  
+`Element AK‑47` is not merely a demo; it is an **artifact**. A digital relic forged in the crucible of modern web technology, yet echoing with ancient whispers. This educational project dares to meld the arcane with the algorithmic, presenting a gothic‑themed journey into the heart of serverless architecture and generative AI.
 
-![Banner Relic](unnamed.png)  
-
----
-
-## 🌑 The Lore: Invocation of the Relic
-In the mortal world it is a **demo**, yet in the arcane archives it is a **relic**.  
-**Element AK-47** binds **Cloudflare Pages, Cloudflare Functions, and the Gemini API** into a cathedral of code where every keystroke is a ritual.  
-
-![Gothic Relic](unnamed%20(1).png)  
+[IMAGE PLACEHOLDER 1: Digital Relic Artifact]
 
 ---
 
-## 🔮 Prophecy: What This Relic Does
-- **Serverless Sorcery** — Cloudflare Pages + Functions power the vessel.  
-- **Oracle Integration** — Gemini API fuels generative prophecy.  
-- **Failsafe Rituals** — Retries, mocks, and graceful fallbacks keep the forge alive.  
-- **Dual Ambience** — Gothic dark-mode or classroom light-mode.  
-- **Runic Animations** — Text glows and flows as if whispered by forgotten gods.  
+## ⚔️ The Lore: Forging Destiny in the Digital Aether ⚔️
 
-![Runic Output](unnamed%20(2).png)  
+In an age where data flows like starlight and intelligence is spun from silicon, we seek the **Element AK‑47**. Not a weapon of mundane steel, but a fundamental building block of digital identity, an entity capable of shaping mythic names from the cosmic winds of AI.
 
----
+This project invites you into a world where Cloudflare Pages serve as the ancient catacombs, Cloudflare Functions as the summoning circles, and the Gemini API as the very Oracle through which destiny is glimpsed and new legends are born.
 
-## 📈 Market Divination
-![Market Prophecy](unnamed%20(3).png)  
-
-This relic doubles as a **demo + engagement engine**. Imagine:  
-- Hackathons powered by myth.  
-- DevRel campaigns with unforgettable presence.  
-- Teaching serverless through gothic immersion.  
+[IMAGE PLACEHOLDER 2: Gothic Scholar at Terminal]
 
 ---
 
-## ⚔️ Deployment Rite
+## 📈 Prophecy: Charting the Cosmos 📈
+
+Peer into the future with our interactive "Prophecy" timeline. Here, market growth isn't just numbers; it's the ebb and flow of cosmic tides, visualized with a Chart.js bar chart. Witness the unfolding destiny of the digital realms.
+
+[IMAGE PLACEHOLDER 3: Cosmic Prophecy Chart]
+
+---
+
+## 🔮 The Forge: Invoking the Oracle 🔮
+
+Step into "The Forge," where the mundane transforms into the mythical. This interactive demo harnesses the raw power of the Gemini API (or an offline mock when the stars are misaligned) to evoke powerful, mythic names. Each invocation is a spark, a creation.
+
+[IMAGE PLACEHOLDER 4: The Forge Interface]
+
+**Observe the Ritual:**
+
+* **Status Indicator:** Know if the Oracle is speaking directly (proxy), or if ancient scrolls (mock) are being consulted.
+* **Retry on Failure + Mock Fallback:** Should the cosmic connection waver, the Forge endures, drawing upon fallback lore.
+* **Rate‑Limit Countdown:** Respect the Oracle's patience; a clear countdown guides your invocations.
+* **Light/Classroom Mode Toggle:** Adapt the Forge's ambiance to your surroundings—from deep arcane chambers to illuminated study halls.
+* **Typing Animation + Glowing Persona Output:** Witness the Oracle's thoughts taking form, its words imbued with a faint, ethereal glow.
+
+---
+
+## 🚀 Deployment: Anchoring the Arcane in the Cloud 🚀
+
+Forged for the Cloudflare ecosystem, Element AK‑47 leverages the speed and power of Cloudflare Pages and Functions. It's a testament to how modern serverless platforms can host even the most arcane of applications.
+
+### Cloudflare Pages Settings:
+* **Framework preset:** `None`
+* **Build command:** (leave empty)
+* **Output directory:** `public`
+* **Functions directory:** `functions`
+
+### Environment Variables (Secrets of the Forge):
+* `GEMINI_API_KEY` — The sacred key to unlock the Gemini Oracle.
+* `GEMINI_MODEL` — (default: `gemini-2.5-flash-preview-05-20`) Specify the particular aspect of the Oracle to consult.
+
+### Rate Limiting (Guarding the Gateway):
+To prevent the overwhelming of the Oracle, configure Cloudflare WAF → Rate limiting rules:
+* **Path:** `/api/*`
+* **Threshold:** `15 requests/min/IP`
+* **Action:** `Block (429)`
+
+---
+
+## ⚒️ Local Dev: Awakening the Spark ⚒️
+
+To awaken Element AK‑47 on your local machine:
+
 ```bash
 # Install the Cloudflare Workers CLI
 npm i -g wrangler
 
-# Awaken the Oracle locally
+# Invoke the local server
 wrangler pages dev public --compatibility-date=2024-09-01
-```
-
-Environment Secrets:  
-- `GEMINI_API_KEY` — the sacred key  
-- `GEMINI_MODEL` — default: `gemini-2.5-flash-preview-05-20`  
-
-![Cloud Deployment](unnamed%20(4).png)  
-
----
-
-## 🪙 Valuation Angles
-| Category                | Potential |
-|--------------------------|-----------|
-| DevRel Artifact          | $5k–$20k |
-| Hackathon Licensing      | $10k–$40k/year |
-| Educational Productization | $99–$199 per student |
-| Digital Collectible Relic | $2k–$10k |
-
-![Treasure Relic](Gemini_Generated_Images_rc_a92e3663456250ad_2/treasure.png)  
-
----
-
-## 🚀 Go-To-Market Ritual
-1. **Branding** — Position as *The Arcane Serverless Oracle*.  
-2. **Channels** — Dev conferences, Product Hunt, viral lore drops.  
-3. **Expansion** — More API templates, alternate mythic skins.  
-
-![Expansion Sigil](Gemini_Generated_Images_rc_a92e3663456250ad_2/expansion.png)  
-
----
-
-## 🧙 About the Author — *Cosmic Weaver*  
-![Author Sigil](unnamed%20(4).png)  
-
-In the daylight he is **Andrias Kund** (born beneath the spring sun, 1993).  
-In the shadowed cathedral of code he is the **Cosmic Weaver** — myth-smith, conjurer, entrepreneur.  
-
-- ⚔️ Founder of **KUNDTEC OÜ** (2017–)  
-- 🜏 Steward of **Margid OÜ**, **Biochemtec OÜ**, **INFILTRASEC OÜ**  
-- 💀 From modest revenues to projected net worth beyond €700k  
-- ✨ Creed: *“We do not build products, we forge artifacts — relics to outlive their creators.”*  
-
----
-
-## Closing Incantation
-*"Element AK-47 is not just a demo — it is a gothic oracle that fuses AI, Cloudflare, and myth into a digital relic of the future."*  
-
-⛧ Codex Arcana — *Element AK-47* ⛧  
