@@ -1,7 +1,9 @@
 # Element AK‑47 — Aries–Gemini Project (Cloudflare Demo)
 
 `Element AK‑47` is not merely a demo; it is an **artifact**. A digital relic forged in the crucible of modern web technology, yet echoing with ancient whispers. This educational project dares to meld the arcane with the algorithmic, presenting a gothic‑themed journey into the heart of serverless architecture and generative AI.
-.. image:: http://googleusercontent.com/image_generation_content/0
+
+<img width="2816" height="1536" alt="Gemini_Generated_Image_uolvdluolvdluolv" src="https://github.com/user-attachments/assets/c333ae88-519c-4c0c-83dc-ccee207b7b4d" />
+
 :alt: A digital relic artifact in a gothic theme
 
 -----
