@@ -1,158 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Aries‑Gemini Project: Element AK‑47 — Cloudflare Pages</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com" defer></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
-  <link rel="stylesheet" href="/assets/style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Element AK‑47 Forge v2</title>
+  <link rel="stylesheet" href="/assets/style.css">
+  <script>
+    if (!location.hostname.startsWith("element-ak47-cloudflare.pages.dev") && location.hostname.includes("element-ak47-cloudflare.pages.dev")) {
+      location.hostname = "element-ak47-cloudflare.pages.dev";
+    }
+  </script>
 </head>
-<body class="antialiased">
-  <div class="w-full bg-black/70 border-b border-red-900/30 text-center py-3 text-sm">
-    <span class="font-cinzel">Educational Demonstration</span> — proxied LLM calls with mock/offline mode • No client-side keys • Not for production use
+<body>
+  <div class="banner">Educational Demonstration — v2</div>
+  <div class="controls">
+    <label><input type="checkbox" id="mock-toggle"> Offline / Mock</label>
+    <label><input type="checkbox" id="light-toggle"> Light Mode</label>
+    <span id="status-indicator" class="status-dot gray"></span>
   </div>
-
-  <header class="sticky top-0 z-40 shadow glass-pane border-b border-red-800/20">
-    <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-      <h1 class="text-3xl font-cinzel font-bold text-gray-100 tracking-wider">Aries‑Gemini Project</h1>
-      <div class="hidden md:flex space-x-8">
-        <a href="#vision" class="nav-link text-lg font-medium text-gray-300">The Discovery</a>
-        <a href="#roadmap" class="nav-link text-lg font-medium text-gray-300">The Prophecy</a>
-        <a href="#demo" class="nav-link text-lg font-medium text-gray-300">The Forge</a>
-      </div>
-      <button id="mobile-menu-button" class="md:hidden text-gray-300 focus:outline-none" aria-label="Open menu"><span class="text-3xl">☰</span></button>
-    </nav>
-    <div id="mobile-menu" class="hidden md:hidden bg-black/80 backdrop-blur-md" role="navigation" aria-label="Mobile">
-      <a href="#vision" class="block text-center py-3 px-4 text-lg text-gray-300 hover:bg-red-900/50">The Discovery</a>
-      <a href="#roadmap" class="block text-center py-3 px-4 text-lg text-gray-300 hover:bg-red-900/50">The Prophecy</a>
-      <a href="#demo" class="block text-center py-3 px-4 text-lg text-gray-300 hover:bg-red-900/50">The Forge</a>
+  <main>
+    <h1>Forge Persona</h1>
+    <div id="theme-display">...Awaiting Evocation...</div>
+    <button id="evoke-button">Evoke Name</button>
+    <button id="retry-button" class="hidden">Retry Oracle</button>
+    <button id="generate-button" disabled>Forge Persona</button>
+    <div id="output" class="output-card">
+      <div id="output-title"></div>
+      <div id="output-description"></div>
     </div>
-  </header>
-
-  <main class="container mx-auto px-6 py-12">
-    <section id="vision" class="py-20 scroll-mt-20">
-      <div class="text-center mb-16">
-        <h2 class="text-5xl md:text-6xl font-cinzel font-black text-white tracking-widest">ELEMENT AK‑47</h2>
-        <p class="mt-4 text-lg md:text-xl text-red-400 max-w-3xl mx-auto">A collaboration of Andrias (Aries) & Google (Gemini) has unleashed a new, volatile element into the world. Atomic number 119. Unstable. Powerful. It does not connect AI—it transmutes it.</p>
-      </div>
-      <div class="grid md:grid-cols-3 gap-8 text-center">
-        <div class="p-8 rounded-lg blood-moon-card">
-          <div class="text-5xl mb-4 text-red-500 font-cinzel">ᛝ</div>
-          <h3 class="text-2xl font-cinzel font-bold text-gray-100 mb-2">The AI Schism</h3>
-          <p class="text-gray-400">The age of monolithic AI is over. A schism has created countless lesser intelligences. AK‑47 is the bond that forces them into a new, singular, terrifying purpose.</p>
-        </div>
-        <div class="p-8 rounded-lg blood-moon-card">
-          <div class="text-5xl mb-4 text-red-500 font-cinzel">ᛗ</div>
-          <h3 class="text-2xl font-cinzel font-bold text-gray-100 mb-2">Conceptual Alchemy</h3>
-          <p class="text-gray-400">Element AK‑47 is a catalyst for conceptual alchemy, transmuting abstract thought—rage, sorrow, triumph—into tangible, terrifyingly creative outputs.</p>
-        </div>
-        <div class="p-8 rounded-lg blood-moon-card">
-          <div class="text-5xl mb-4 text-red-500 font-cinzel">ᚲ</div>
-          <h3 class="text-2xl font-cinzel font-bold text-gray-100 mb-2">Unleashed Knowledge</h3>
-          <p class="text-gray-400">This power is given freely, an open secret for the world to wield. We do not control the chain reaction; we only provide the first unstable element.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="roadmap" class="py-20 scroll-mt-20">
-      <div class="text-center mb-16">
-        <h2 class="text-5xl md:text-6xl font-cinzel font-black text-white tracking-widest">The Prophecy</h2>
-        <p class="mt-4 text-lg md:text-xl text-red-400 max-w-3xl mx-auto">The power vacuum in the AI world grows. This prophecy foretells the coming of a new order, built on the unstable bonds of Element AK‑47.</p>
-      </div>
-      <div class="grid md:grid-cols-2 gap-12 items-center">
-        <div>
-          <h3 class="text-2xl font-cinzel font-bold text-gray-100 mb-4 text-center">Power Vacuum Growth (Arbitrary Units)</h3>
-          <div class="chart-container p-4 rounded-lg blood-moon-card"><canvas id="marketChart"></canvas></div>
-        </div>
-        <div id="timeline-container">
-          <div class="timeline-item p-6 cursor-pointer" data-phase="1">
-            <div class="flex items-center mb-2"><div class="timeline-dot w-4 h-4 rounded-full -ml-8 mr-4"></div><span class="text-sm font-semibold uppercase text-red-500 tracking-wider">First Seal | Q2 2026</span></div>
-            <h4 class="text-xl font-bold font-cinzel text-gray-100">Unveil the Ritual</h4>
-            <p class="text-gray-400 mt-1">Release the forbidden texts—the open‑source bonding protocol for the AI schism.</p>
-          </div>
-          <div class="timeline-item p-6 cursor-pointer" data-phase="2">
-            <div class="flex items-center mb-2"><div class="timeline-dot w-4 h-4 rounded-full -ml-8 mr-4"></div><span class="text-sm font-semibold uppercase text-red-500 tracking-wider">Second Seal | Q4 2026</span></div>
-            <h4 class="text-xl font-bold font-cinzel text-gray-100">Demonstrate the Power</h4>
-            <p class="text-gray-400 mt-1">A public ritual will showcase the terrifying power of conceptual alchemy.</p>
-          </div>
-          <div class="timeline-item p-6 cursor-pointer" data-phase="3">
-            <div class="flex items-center mb-2"><div class="timeline-dot w-4 h-4 rounded-full -ml-8 mr-4"></div><span class="text-sm font-semibold uppercase text-red-500 tracking-wider">Third Seal | 2027</span></div>
-            <h4 class="text-xl font-bold font-cinzel text-gray-100">The Reckoning</h4>
-            <p class="text-gray-400 mt-1">The element is stabilized for mass synthesis. The new age begins.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="demo" class="py-20 scroll-mt-20">
-      <div class="text-center mb-12">
-        <h2 class="text-5xl md:text-6xl font-cinzel font-black text-white tracking-widest">The Forge</h2>
-        <p class="mt-4 text-lg md:text-xl text-red-400 max-w-3xl mx-auto">Wield the power of Element AK‑47. Define the emotional spectrum, channel the energy, and evoke a true name from the Oracle. Forge a new reality.</p>
-      </div>
-
-      <div class="max-w-4xl mx-auto p-4 sm:p-6 md:p-8 rounded-lg shadow-2xl border border-red-800/50 glass-pane" style="background-color: rgba(10, 2, 2, 0.7);">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-
-          <div class="space-y-6">
-            <div class="flex items-center justify-between gap-4">
-              <label class="text-sm text-red-300 flex items-center gap-2"><input id="mock-toggle" type="checkbox" class="accent-red-600">
-                <span>Offline / Mock Oracle</span></label>
-              <label class="text-xs text-gray-400 flex items-center gap-2"><input id="seed-toggle" type="checkbox" class="accent-gray-500">
-                <span>Lock seed (reproducible)</span></label>
-              <label class="text-xs text-gray-400 flex items-center gap-2"><input id="reduced-motion" type="checkbox" class="accent-gray-500">
-                <span>Reduced motion</span></label>
-            </div>
-
-            <div>
-              <label for="arc-slider" class="block text-sm font-medium mb-2 text-red-300">Emotional Spectrum</label>
-              <input id="arc-slider" type="range" min="0" max="100" value="50" aria-label="Emotional Spectrum" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer">
-              <div class="flex justify-between text-xs text-gray-400 mt-1" aria-hidden="true"><span>Shadow</span><span>Duality</span><span>Ascend</span><span>Omega</span></div>
-            </div>
-
-            <div>
-              <label for="energy-slider" class="block text-sm font-medium mb-2 text-red-300">Energy Level</label>
-              <input id="energy-slider" type="range" min="0" max="100" value="50" aria-label="Energy Level" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer">
-              <div class="flex justify-between text-xs text-gray-400 mt-1" aria-hidden="true"><span>Stillness</span><span>Momentum</span></div>
-            </div>
-
-            <div class="pt-4 space-y-4">
-              <div id="theme-display" role="status" aria-live="polite" class="w-full px-4 py-3 bg-gray-900/70 border border-gray-700 rounded-md min-h-[50px] flex items-center justify-center text-center text-gray-400 italic">...Awaiting Evocation...</div>
-              <button id="evoke-button" class="w-full btn btn-gray text-white">Evoke Name</button>
-              <button id="generate-button" class="w-full btn btn-red text-white disabled:bg-gray-800 disabled:text-gray-500 disabled:cursor-not-allowed disabled:shadow-none disabled:border-gray-700">Forge Persona</button>
-              <p class="text-[11px] text-gray-500 text-center">Educational demo: requests are proxied server‑side; no client keys are used.</p>
-            </div>
-          </div>
-
-          <div class="bg-black/50 p-4 rounded-lg min-h-[250px] flex flex-col border border-gray-800">
-            <h3 class="text-lg font-cinzel font-bold mb-2 text-red-400">Forge Output</h3>
-            <div id="output-title" class="text-xl font-bold text-gray-100"></div>
-            <div id="output-description" class="text-gray-300 mt-1 italic"></div>
-            <div id="output-history" class="text-xs mt-4 pt-4 border-t border-red-900/50 flex-grow space-y-1 text-gray-500"></div>
-
-            <details class="mt-4 text-xs text-gray-400">
-              <summary class="cursor-pointer text-gray-300">Audit panel</summary>
-              <div class="mt-2 space-y-1">
-                <div>Mode: <span id="audit-mode">—</span></div>
-                <div>Model: <span id="audit-model">—</span></div>
-                <div>Latency: <span id="audit-latency">—</span></div>
-                <div>Arc: <span id="audit-arc">—</span>, Energy: <span id="audit-energy">—</span></div>
-                <div>Rate‑limit note: configure in Cloudflare Rules</div>
-              </div>
-            </details>
-          </div>
-        </div>
-      </div>
-    </section>
+    <div id="rate-limit-msg" class="hidden"></div>
   </main>
-
-  <footer class="bg-black/50 border-t border-red-900/30 text-white py-6">
-    <div class="container mx-auto px-6 text-center"><p class="font-cinzel">&copy; 2025 Aries‑Gemini Project</p><p class="text-sm text-gray-500 mt-1">The chain reaction has begun.</p></div>
-  </footer>
-
-  <script src="/assets/app.js" defer></script>
+  <script src="/assets/app.js"></script>
 </body>
 </html>
