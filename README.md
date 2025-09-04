@@ -4,7 +4,7 @@
 
 <img width="2816" height="1536" alt="Gemini_Generated_Image_uolvdluolvdluolv" src="https://github.com/user-attachments/assets/c333ae88-519c-4c0c-83dc-ccee207b7b4d" />
 
-:alt: A digital relic artifact in a gothic theme
+A digital relic artifact in a gothic theme
 
 -----
 
