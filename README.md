@@ -2,7 +2,7 @@
 
 `Element AK-47` is not merely a demo; it is an **artifact**. A digital relic forged in the crucible of modern web technology, yet echoing with ancient whispers. This educational project dares to meld the arcane with the algorithmic, presenting a gothic-themed journey into the heart of serverless architecture and generative AI.
 
-![Digital Relic Artifact](/Gemini_Generated_Images_rc_a92e3663456250ad_2/images/unnamed.png)
+![Digital Relic Artifact](https://element-ak47-cloudflare.pages.dev/Gemini_Generated_Images_rc_a92e3663456250ad_2/images/unnamed.png)
 
 ---
 
@@ -10,7 +10,7 @@
 
 In an age where data flows like starlight and intelligence is spun from silicon, we seek the **Element AK-47**. Not a weapon of mundane steel, but a fundamental building block of digital identity, an entity capable of shaping mythic names from the cosmic winds of AI.
 
-![Gothic Scholar at Terminal](/Gemini_Generated_Images_rc_a92e3663456250ad_2/images/unnamed%20\(4\).png)
+![Gothic Scholar at Terminal](https://element-ak47-cloudflare.pages.dev/Gemini_Generated_Images_rc_a92e3663456250ad_2/images/unnamed%20\(4\).png)
 
 ---
 
@@ -18,7 +18,7 @@ In an age where data flows like starlight and intelligence is spun from silicon,
 
 Peer into the future with our interactive "Prophecy" timeline. Here, market growth isn't just numbers; it's the ebb and flow of cosmic tides, visualized with a Chart.js bar chart. Witness the unfolding destiny of the digital realms.
 
-![Cosmic Prophecy Chart](/Gemini_Generated_Images_rc_a92e3663456250ad_2/images/unnamed%20\(2\).png)
+![Cosmic Prophecy Chart](https://element-ak47-cloudflare.pages.dev/Gemini_Generated_Images_rc_a92e3663456250ad_2/images/unnamed%20\(2\).png)
 
 ---
 
@@ -26,7 +26,7 @@ Peer into the future with our interactive "Prophecy" timeline. Here, market grow
 
 Step into "The Forge," where the mundane transforms into the mythical. This interactive demo harnesses the raw power of the Gemini API (or an offline mock when the stars are misaligned) to evoke powerful, mythic names. Each invocation is a spark, a creation.
 
-![The Forge Interface](/Gemini_Generated_Images_rc_a92e3663456250ad_2/images/unnamed%20\(3\).png)
+![The Forge Interface](https://element-ak47-cloudflare.pages.dev/Gemini_Generated_Images_rc_a92e3663456250ad_2/images/unnamed%20\(3\).png)
 
 **Observe the Ritual:**
 
@@ -36,7 +36,7 @@ Step into "The Forge," where the mundane transforms into the mythical. This inte
 * **Light/Classroom Mode Toggle:** Adapt the Forge's ambiance to your surroundings—from deep arcane chambers to illuminated study halls.
 * **Typing Animation + Glowing Persona Output:** Witness the Oracle's thoughts taking form, its words imbued with a faint, ethereal glow.
 
-![Classroom Mode](/Gemini_Generated_Images_rc_a92e3663456250ad_2/images/unnamed%20\(1\).png)
+![Classroom Mode](https://element-ak47-cloudflare.pages.dev/Gemini_Generated_Images_rc_a92e3663456250ad_2/images/unnamed%20\(1\).png)
 
 ---
 
@@ -86,10 +86,10 @@ wrangler pages dev public --compatibility-date=2024-09-01
 
 ### /Gemini\_Generated\_Images\_rc\_a92e3663456250ad\_2/images
 
-![Digital Relic Artifact](/Gemini_Generated_Images_rc_a92e3663456250ad_2/images/unnamed.png)
-![Classroom Mode](/Gemini_Generated_Images_rc_a92e3663456250ad_2/images/unnamed%20\(1\).png)
-![Cosmic Prophecy Chart](/Gemini_Generated_Images_rc_a92e3663456250ad_2/images/unnamed%20\(2\).png)
-![The Forge Interface](/Gemini_Generated_Images_rc_a92e3663456250ad_2/images/unnamed%20\(3\).png)
-![Gothic Scholar at Terminal](/Gemini_Generated_Images_rc_a92e3663456250ad_2/images/unnamed%20\(4\).png)
+![Digital Relic Artifact](https://element-ak47-cloudflare.pages.dev/Gemini_Generated_Images_rc_a92e3663456250ad_2/images/unnamed.png)
+![Classroom Mode](https://element-ak47-cloudflare.pages.dev/Gemini_Generated_Images_rc_a92e3663456250ad_2/images/unnamed%20\(1\).png)
+![Cosmic Prophecy Chart](https://element-ak47-cloudflare.pages.dev/Gemini_Generated_Images_rc_a92e3663456250ad_2/images/unnamed%20\(2\).png)
+![The Forge Interface](https://element-ak47-cloudflare.pages.dev/Gemini_Generated_Images_rc_a92e3663456250ad_2/images/unnamed%20\(3\).png)
+![Gothic Scholar at Terminal](https://element-ak47-cloudflare.pages.dev/Gemini_Generated_Images_rc_a92e3663456250ad_2/images/unnamed%20\(4\).png)
 
 <!-- END:GALLERY -->
